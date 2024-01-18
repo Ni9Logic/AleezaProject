@@ -1,16 +1,16 @@
 <?php
-$first_name = $_POST['first_name'];
-$last_name = $_POST['last_name'];
+$firstname = $_POST['first_name'];
+$lastname = $_POST['last_name'];
 $contact = $_POST['contact'];
-$dish = $_POST['dishes'];
+$dishes = $_POST['dishes'];
 
-echo $first_name, $last_name, $contact, $dish;
+echo $firstname, $lastname, $contact, $dishes;
 
 // Database credentials
-$host = "sql12.freesqldatabase.com";
-$databaseName = "sql12677951";
-$user = "sql12677951";
-$password = "gqpdArHTUj";
+$host = "localhost";
+$databaseName = "FoodPanda";
+$user = "root";
+$password = "root";
 $port = 3306;
 
 // Create a connection
@@ -22,7 +22,7 @@ if ($mysqli->connect_error) {
 } else {
     try {
         echo "Connected successfully";
-        $query = "INSERT INTO orders (first_name, last_name, contact, dish) VALUES ('$first_name', '$last_name', '$contact', '$dish')";
+        $query = "INSERT INTO orders (firstname, lastname, contact, dishes) VALUES ('$firstname', '$lastname', '$contact', '$dishes')";
         $result = $mysqli->query($query);
         echo "Created Order Successfully";
         echo $result;
