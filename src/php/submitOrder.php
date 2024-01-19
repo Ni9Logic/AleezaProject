@@ -4,7 +4,6 @@ $lastname = $_POST['last_name'];
 $contact = $_POST['contact'];
 $dishes = $_POST['dishes'];
 
-echo $firstname, $lastname, $contact, $dishes;
 
 // Database credentials
 $host = "localhost";
@@ -24,8 +23,9 @@ if ($mysqli->connect_error) {
         echo "Connected successfully";
         $query = "INSERT INTO orders (firstname, lastname, contact, dishes) VALUES ('$firstname', '$lastname', '$contact', '$dishes')";
         $result = $mysqli->query($query);
-        echo "Created Order Successfully";
-        echo $result;
+        if ($result){
+           echo '<br>Order Created Successfully';
+        }
     } catch (error) {
         echo $error;
     }
